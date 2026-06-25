@@ -121,6 +121,7 @@
     <div class="role">IT Support &nbsp;|&nbsp; Help Desk &nbsp;|&nbsp; Cloud &amp; DevOps &nbsp;|&nbsp; Cyber Security</div>
     <div class="contact-row">
       <span>📍 Northfield, SA 5085</span>
+      <span>✅ Full-time availability &nbsp;·&nbsp; Full working rights in Australia</span>
       <span>📞 <a href="tel:0478199436">0478 199 436</a></span>
       <span>✉️ <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=priyanshuror00@gmail.com">priyanshuror00@gmail.com</a></span>
       <span>🔗 <a href="https://www.linkedin.com/in/priyanshu-kainwal-38242a287">linkedin.com/in/priyanshu-kainwal</a></span>
@@ -187,12 +188,14 @@
       </div>
       <div class="entry-sub">
         Live: <a href="https://www.callatechnician.com.au">callatechnician.com.au</a>
-        &nbsp;·&nbsp; Stack: Node.js, Express, MongoDB, JWT, REST API, React &nbsp;·&nbsp; Role: Project Manager &amp; Full-Stack Developer
+        &nbsp;·&nbsp; GitHub: <a href="https://github.com/Priyanshukainwal0/call-a-technician">github.com/Priyanshukainwal0/call-a-technician</a>
+        &nbsp;·&nbsp; Stack: Node.js, Express, MongoDB, JWT, REST API, React, npm workspaces &nbsp;·&nbsp; Role: Project Manager &amp; Full-Stack Developer
       </div>
       <ul class="bullets">
         <li>Led a 5-person capstone team as Project Manager from initial client requirements through to a live production launch — ran weekly standups, owned the sprint backlog in Agile/Scrum, and resolved blockers across frontend, backend, and infrastructure workstreams.</li>
-        <li>Designed and built a Node.js/Express/MongoDB REST API with JWT authentication and role-based access control, powering an 8-stage job workflow (Open → Assigned → Accepted → En Route → On Site → In Progress → Completed → Closed) with a full audit trail.</li>
-        <li>Built the public-facing booking site and an internal operations dashboard end-to-end — customers search for technicians, book a time slot, and receive automated email confirmation; staff assign jobs and track status in real time.</li>
+        <li>Designed and built a Node.js/Express/MongoDB REST API with JWT authentication and role-based access control, powering an 8-stage job workflow (Open → Assigned → Accepted → En Route → On Site → In Progress → Completed → Closed) with a full audit trail logged against every status change.</li>
+        <li>Built a public-facing booking site with a customer-facing request form, automated email confirmation, and reCAPTCHA spam protection — plus an internal operations dashboard where staff review incoming requests, assign technicians, and track live job status.</li>
+        <li>Structured the codebase as an npm workspaces monorepo (separate marketing site, admin portal, and backend API) for clean separation of concerns and independent deployability.</li>
         <li>Delivered a real product used by a real business client, translating stakeholder feedback into shipped features across multiple sprint cycles — a direct demonstration of end-to-end ownership from requirements to production.</li>
       </ul>
     </div>
@@ -210,10 +213,11 @@
       </div>
       <ul class="bullets">
         <li>Designed and shipped a complete 6-phase DevOps pipeline from scratch, covering the full delivery lifecycle: containerization → orchestration → packaging → CI/CD → monitoring → live production deployment.</li>
-        <li>Containerized services with Docker Compose, then migrated to Kubernetes manifests on k3d (Deployments, Services, Ingress, HPA) for horizontal scaling and self-healing under load.</li>
-        <li>Authored a custom Helm chart bundling the application with Prometheus and Grafana as sub-chart dependencies — one command deploys the full observability stack alongside the app.</li>
-        <li>Built a GitHub Actions CI/CD pipeline that lints, tests, builds, and pushes Docker images automatically on every commit, then deploys live to Render via a render.yaml Blueprint with zero manual steps.</li>
-        <li>Replaced SQLite with Neon PostgreSQL for persistent storage and built a background health-check service that monitors registered endpoints every 60 seconds, feeding a live Chart.js dashboard (uptime, latency history, status breakdown) and a Grafana dashboard (request rate, P95 latency, error rate) auto-provisioned via ConfigMap.</li>
+        <li>Containerized 3 services with Docker Compose, then migrated to Kubernetes manifests on k3d (Deployments, Services, Ingress, HorizontalPodAutoscaler) for horizontal scaling and self-healing under load.</li>
+        <li>Authored a custom Helm chart bundling the application with Prometheus and Grafana as sub-chart dependencies — one command (<code>helm install</code>) deploys the full app plus its entire observability stack.</li>
+        <li>Built a GitHub Actions CI/CD pipeline that lints, tests, builds, and pushes Docker images automatically on every commit, then deploys live to Render via a render.yaml Blueprint with zero manual steps — true infrastructure-as-code from commit to production.</li>
+        <li>Replaced SQLite with Neon PostgreSQL for persistent, restart-proof storage, and built a background health-check service that polls registered endpoints every 60 seconds.</li>
+        <li>Built a live, portfolio-style monitoring dashboard (Chart.js) showing real-time uptime history, per-service latency graphs, and colour-coded status — plus a Grafana dashboard (request rate, P95 latency, error rate, HTTP status breakdown) auto-provisioned via Kubernetes ConfigMap.</li>
       </ul>
     </div>
 
@@ -229,10 +233,11 @@
         &nbsp;·&nbsp; Stack: Python, FastAPI, PostgreSQL, Docker, GitHub Actions, Terraform (AWS EC2), Prometheus
       </div>
       <ul class="bullets">
-        <li>Designed and shipped a production help-desk REST API covering the full ticket lifecycle (create, update, filter by status/priority, close), with a dark single-page web console and auto-generated Swagger docs at <code>/docs</code>.</li>
-        <li>Wrote a 23-test pytest suite with per-test isolated SQLite databases — the same codebase switches to Neon PostgreSQL in production via a single environment variable, with zero code changes.</li>
-        <li>Wrote Terraform IaC to provision an AWS EC2 instance with a security group and a user-data bootstrap script that installs Docker and starts the container automatically — fully repeatable, version-controlled infrastructure.</li>
-        <li>Built a GitHub Actions CI pipeline that runs the full test suite and builds the Docker image on every push, plus a Prometheus + Grafana monitoring stack (via a separate Docker Compose file) tracking request rate, P95 latency, and error rate.</li>
+        <li>Designed and shipped a production help-desk REST API covering the full ticket lifecycle — create, update, filter by status/priority/assignee, and close — with a dark single-page web console and auto-generated Swagger/OpenAPI docs at <code>/docs</code>.</li>
+        <li>Wrote a 23-test pytest suite with per-test isolated SQLite databases — the same codebase switches to Neon PostgreSQL in production via a single environment variable, with zero code changes (12-factor config pattern).</li>
+        <li>Wrote Terraform IaC to provision an AWS EC2 instance with a security group and a user-data bootstrap script that installs Docker and starts the container automatically on boot — fully repeatable, version-controlled infrastructure with no manual server setup.</li>
+        <li>Built a GitHub Actions CI pipeline that runs the full test suite and builds the Docker image on every push, catching regressions before they reach production.</li>
+        <li>Instrumented the API with <code>prometheus-fastapi-instrumentator</code> and stood up a Prometheus + Grafana monitoring stack (via a separate Docker Compose file) tracking request rate, P95 latency, and error rate in real time.</li>
       </ul>
     </div>
 
