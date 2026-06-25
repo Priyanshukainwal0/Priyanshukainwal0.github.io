@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Priyanshu — IT &amp; DevOps Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* ── TOKENS ── */
+:root {
+  --bg:     #030712;
+  --s1:     #060c1a;
+  --s2:     #0c1529;
+  --s3:     #111e38;
+  --border: rgba(255,255,255,.07);
+  --blue:   #2563eb;
+  --blue2:  #60a5fa;
+  --cyan:   #22d3ee;
+  --purple: #a855f7;
+  --green:  #22c55e;
+  --t1: #f1f5f9;
+  --t2: #94a3b8;
+  --t3: #475569;
+  --r: 12px;
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--t1);-webkit-font-smoothing:antialiased;overflow-x:hidden;line-height:1.6}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(1rem,5vw,4rem);background:rgba(3,7,18,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo{font-weight:800;font-size:15px;letter-spacing:-.4px}
+.nav-logo em{font-style:normal;color:var(--blue2)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--t2);transition:color .15s}
+.nav-links a:hover{color:var(--t1)}
+.nav-cta{font-size:13px;font-weight:600;padding:6px 18px;border-radius:50px;background:var(--blue);color:#fff;transition:opacity .15s,transform .15s}
+.nav-cta:hover{opacity:.88;transform:translateY(-1px)}
+@media(max-width:680px){.nav-links{display:none}}
+
+/* ── BLOBS ── */
+.blob{position:absolute;border-radius:50%;filter:blur(130px);pointer-events:none;z-index:0}
+
+/* ── SECTION SHELL ── */
+.wrap{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:100px clamp(1.5rem,5vw,3.5rem)}
+.s-tag{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue2);margin-bottom:12px}
+.s-tag::before{content:'';width:18px;height:2px;border-radius:2px;background:var(--blue2)}
+.s-title{font-size:clamp(1.9rem,3.5vw,2.7rem);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:12px}
+.s-sub{font-size:15px;color:var(--t2);max-width:500px;line-height:1.75;margin-bottom:52px}
+
+/* ── BTN ── */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 22px;border-radius:50px;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .18s var(--ease)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,99,235,.3)}
+.btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--border);color:var(--t1)}
+.btn-ghost:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1px solid var(--border);color:var(--t2);font-size:12px;padding:5px 14px;border-radius:8px}
+.btn-outline:hover{border-color:var(--blue2);color:var(--blue2)}
+.btn-sm{padding:6px 14px;font-size:12px;border-radius:8px}
+.btn-green{background:rgba(34,197,94,.12);border:1px solid rgba(34,197,94,.25);color:var(--green);font-size:12px;padding:5px 14px;border-radius:8px}
+
+/* chip */
+.chip{display:inline-block;padding:3px 10px;border-radius:6px;font-size:11px;font-weight:600;background:rgba(37,99,235,.1);color:var(--blue2);border:1px solid rgba(37,99,235,.18)}
+.chip-gray{background:rgba(255,255,255,.05);color:var(--t2);border-color:var(--border)}
+.chip-green{background:rgba(34,197,94,.1);color:var(--green);border-color:rgba(34,197,94,.2)}
+.chip-purple{background:rgba(168,85,247,.1);color:#c084fc;border-color:rgba(168,85,247,.2)}
+.chip-cyan{background:rgba(34,211,238,.1);color:var(--cyan);border-color:rgba(34,211,238,.2)}
+
+/* ── HERO ── */
+#hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:130px clamp(1.5rem,5vw,3.5rem) 80px;max-width:1100px;margin:0 auto;gap:20px;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:20px;width:fit-content;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:12px;font-weight:500;color:#4ade80}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80;animation:blink 2.2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero-name{font-size:clamp(3rem,8vw,6rem);font-weight:900;letter-spacing:-.06em;line-height:.92}
+.hero-name .grad{background:linear-gradient(135deg,var(--blue2) 0%,#c084fc 50%,var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-role{font-size:clamp(1rem,2vw,1.2rem);color:var(--t2);font-weight:400}
+.hero-role strong{color:var(--t1);font-weight:600}
+.hero-desc{max-width:540px;font-size:16px;color:var(--t2);line-height:1.78}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:40px;flex-wrap:wrap;margin-top:8px;padding-top:28px;border-top:1px solid var(--border)}
+.hs-num{font-size:1.7rem;font-weight:800;color:var(--blue2);line-height:1}
+.hs-label{font-size:11px;color:var(--t2);margin-top:3px}
+
+/* ── ABOUT ── */
+#about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;padding-top:120px;padding-bottom:120px}
+@media(max-width:860px){#about .wrap{grid-template-columns:1fr;gap:48px}}
+.about-body p{font-size:15px;color:var(--t2);line-height:1.8;margin-bottom:14px}
+.about-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px}
+.pill{display:inline-block;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--t2);transition:all .15s}
+.pill:hover{background:rgba(37,99,235,.1);color:var(--blue2);border-color:rgba(37,99,235,.3)}
+
+/* stat card row */
+.about-stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:28px}
+.astat{background:var(--s2);border:1px solid var(--border);border-radius:var(--r);padding:20px}
+.astat-num{font-size:1.8rem;font-weight:800;color:var(--blue2);line-height:1}
+.astat-label{font-size:11px;color:var(--t2);margin-top:4px}
+
+/* ── SKILLS ── */
+#skills{background:var(--s1)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.skill-card{padding:22px;border-radius:var(--r);background:rgba(255,255,255,.03);border:1px solid var(--border);transition:border-color .2s,transform .2s}
+.skill-card:hover{border-color:rgba(37,99,235,.4);transform:translateY(-4px)}
+.skill-icon{font-size:22px;margin-bottom:14px}
+.skill-card h3{font-size:14px;font-weight:700;margin-bottom:6px}
+.skill-card p{font-size:12px;color:var(--t2);line-height:1.6;margin-bottom:10px}
+.skill-chips{display:flex;flex-wrap:wrap;gap:5px}
+
+/* certs */
+.certs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-top:20px}
+.cert-card{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:var(--r);background:rgba(255,255,255,.03);border:1px solid var(--border);transition:border-color .2s,transform .2s}
+.cert-card:hover{border-color:rgba(37,99,235,.3);transform:translateY(-2px)}
+.cert-icon{width:36px;height:36px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px;background:linear-gradient(135deg,var(--blue),var(--purple))}
+.cert-card h4{font-size:13px;font-weight:700;margin-bottom:3px}
+.cert-card p{font-size:12px;color:var(--t2)}
+.cert-date{font-size:11px;color:var(--t3);margin-top:3px}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+
+/* featured spans full width */
+.proj-card-featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--s2);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:border-color .25s,transform .25s}
+.proj-card-featured:hover{border-color:rgba(37,99,235,.4);transform:translateY(-4px)}
+@media(max-width:700px){.proj-card-featured{grid-template-columns:1fr}}
+
+.proj-card{background:var(--s2);border:1px solid var(--border);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+.proj-card:hover{border-color:rgba(37,99,235,.35);transform:translateY(-5px)}
+
+/* banner */
+.proj-banner{aspect-ratio:16/9;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.proj-banner-featured{min-height:100%;aspect-ratio:unset}
+.proj-emoji{font-size:52px;opacity:.18;position:absolute}
+.proj-banner-grad{position:absolute;inset:0}
+
+/* skyops banner */
+.banner-skyops{background:linear-gradient(135deg,#030d1f 0%,#071433 40%,#0a1f4a 100%)}
+.banner-skyops::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(37,99,235,.2),transparent 60%)}
+
+/* ticketdesk banner */
+.banner-ticket{background:linear-gradient(135deg,#0a0d1a 0%,#0d1326 50%,#111a35 100%)}
+.banner-ticket::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 40%,rgba(168,85,247,.15),transparent 60%)}
+
+/* call-a-tech banner */
+.banner-call{background:linear-gradient(135deg,#071a0e 0%,#0a2218 50%,#0d2e20 100%)}
+.banner-call::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(34,197,94,.12),transparent 60%)}
+
+/* sql banner */
+.banner-sql{background:linear-gradient(135deg,#170a07 0%,#2a1005 50%,#1e0e04 100%)}
+
+/* banner mock UI */
+.mock-ui{position:absolute;inset:0;display:flex;flex-direction:column;padding:20px;gap:8px;z-index:1}
+.mock-bar{height:6px;border-radius:3px;background:rgba(255,255,255,.08)}
+.mock-bar.w30{width:30%}.mock-bar.w50{width:50%}.mock-bar.w70{width:70%}.mock-bar.w90{width:90%}.mock-bar.accent{background:rgba(37,99,235,.4)}.mock-bar.accent2{background:rgba(168,85,247,.35)}.mock-bar.accent3{background:rgba(34,197,94,.35)}
+.mock-dots{display:flex;gap:5px;margin-bottom:6px}
+.mock-dot{width:8px;height:8px;border-radius:50%}
+.mock-cards{display:flex;gap:8px;flex:1}
+.mock-card{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:8px}
+.mock-line{height:4px;border-radius:2px;background:rgba(255,255,255,.07);margin-bottom:5px}
+.mock-chart{height:40px;display:flex;align-items:flex-end;gap:3px;margin-top:auto}
+.mock-bar-v{border-radius:2px 2px 0 0;background:rgba(37,99,235,.4);width:8px}
+
+.proj-overlay{position:absolute;bottom:0;left:0;right:0;height:55%;background:linear-gradient(to top,var(--s2),transparent);z-index:2}
+
+.proj-body{padding:22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.proj-type{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue2)}
+.proj-body h3{font-size:17px;font-weight:700;letter-spacing:-.02em}
+.proj-body p{font-size:13px;color:var(--t2);line-height:1.65;flex:1}
+.proj-stack{display:flex;flex-wrap:wrap;gap:5px;margin-top:4px}
+.proj-links{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+
+/* live badge */
+.live-badge{display:inline-flex;align-items:center;gap:5px;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:var(--green)}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2s infinite}
+
+/* ── EXPERIENCE ── */
+#experience{background:var(--s1)}
+.exp-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.exp-grid{grid-template-columns:1fr}}
+.exp-card{padding:22px;border-radius:var(--r);background:rgba(255,255,255,.03);border:1px solid var(--border);transition:border-color .2s,transform .2s}
+.exp-card:hover{border-color:rgba(37,99,235,.3);transform:translateY(-3px)}
+.exp-date{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--blue2);margin-bottom:5px}
+.exp-card h3{font-size:15px;font-weight:700;margin-bottom:3px}
+.exp-company{font-size:13px;color:var(--t2);margin-bottom:12px}
+.exp-list li{font-size:13px;color:var(--t2);line-height:1.65;padding-left:14px;position:relative;margin-bottom:5px}
+.exp-list li::before{content:'–';position:absolute;left:0;color:var(--blue2)}
+
+/* edu */
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.edu-card{padding:22px;border-radius:var(--r);background:var(--s2);border:1px solid var(--border);transition:border-color .2s,transform .2s}
+.edu-card:hover{border-color:rgba(37,99,235,.3);transform:translateY(-3px)}
+.edu-badge{display:inline-block;padding:2px 10px;border-radius:6px;font-size:11px;font-weight:700;background:rgba(37,99,235,.1);color:var(--blue2);border:1px solid rgba(37,99,235,.2);margin-bottom:10px}
+.edu-card h3{font-size:15px;font-weight:700;margin-bottom:4px}
+.edu-inst{font-size:13px;color:var(--t2);margin-bottom:3px}
+.edu-date{font-size:11px;color:var(--t3);margin-bottom:10px}
+.edu-card p{font-size:13px;color:var(--t2);line-height:1.65}
+
+/* ── CONTACT ── */
+#contact .wrap{text-align:center;display:flex;flex-direction:column;align-items:center}
+.contact-box{width:100%;max-width:620px;background:var(--s2);border:1px solid var(--border);border-radius:20px;padding:48px 40px;position:relative;overflow:hidden}
+.contact-box::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(to right,transparent,var(--blue2),transparent)}
+.contact-box p{font-size:15px;color:var(--t2);line-height:1.75;margin-bottom:24px}
+.social-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:24px}
+.social-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:50px;font-size:13px;font-weight:600;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--t2);transition:all .15s}
+.social-btn:hover{background:rgba(37,99,235,.1);color:var(--blue2);border-color:rgba(37,99,235,.3);transform:translateY(-2px)}
+
+/* ── FOOTER ── */
+footer{position:relative;z-index:1;text-align:center;padding:28px;border-top:1px solid var(--border);font-size:12px;color:var(--t3)}
+
+/* ── ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.fade-up.in{opacity:1;transform:none}
+.fade-up:nth-child(2){transition-delay:.07s}
+.fade-up:nth-child(3){transition-delay:.14s}
+.fade-up:nth-child(4){transition-delay:.21s}
+.fade-up:nth-child(5){transition-delay:.28s}
+.fade-up:nth-child(6){transition-delay:.35s}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Priyanshu <em>·</em> Portfolio</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:priyanshuror00@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="blob" style="width:700px;height:700px;background:rgba(37,99,235,.1);top:-200px;right:-150px"></div>
+  <div class="blob" style="width:400px;height:400px;background:rgba(168,85,247,.07);bottom:0;left:-100px"></div>
+
+  <div class="hero-badge"><span class="dot"></span>Open to work — Adelaide, SA</div>
+
+  <h1 class="hero-name">Priyanshu<br><span class="grad">— IT &amp; DevOps.</span></h1>
+
+  <p class="hero-role">
+    <strong>IT Support</strong> &nbsp;·&nbsp;
+    <strong>Cloud &amp; DevOps</strong> &nbsp;·&nbsp;
+    <strong>Help Desk</strong> &nbsp;·&nbsp;
+    <strong>Cyber Security</strong>
+  </p>
+
+  <p class="hero-desc">
+    IT professional with a Bachelor of IT from Federation University Australia. Google IT Support certified.
+    I build and deploy real production systems — 6-phase DevOps pipelines, containerised APIs,
+    Kubernetes clusters, CI/CD automation, and cloud-native apps.
+  </p>
+
+  <div class="hero-actions">
+    <a href="#projects" class="btn btn-primary">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+      View Projects
+    </a>
+    <a href="resume.html" target="_blank" class="btn btn-ghost">
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+      Download CV
+    </a>
+  </div>
+
+  <div class="hero-stats">
+    <div><div class="hs-num">6</div><div class="hs-label">DevOps Phases</div></div>
+    <div><div class="hs-num">3+</div><div class="hs-label">Live Projects</div></div>
+    <div><div class="hs-num">4+</div><div class="hs-label">Certifications</div></div>
+    <div><div class="hs-num">B.IT</div><div class="hs-label">Degree Held</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+
+    <div class="fade-up">
+      <div class="about-stats">
+        <div class="astat">
+          <div class="astat-num">6</div>
+          <div class="astat-label">DevOps phases delivered end-to-end</div>
+        </div>
+        <div class="astat">
+          <div class="astat-num">3+</div>
+          <div class="astat-label">Production apps live on the internet</div>
+        </div>
+        <div class="astat">
+          <div class="astat-num">4+</div>
+          <div class="astat-label">Industry certifications completed</div>
+        </div>
+        <div class="astat">
+          <div class="astat-num">B.IT</div>
+          <div class="astat-label">Bachelor of IT — Federation University</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <span class="s-tag">About Me</span>
+      <h2 class="s-title">Bridging people<br>with technology.</h2>
+      <div class="about-body">
+        <p>I'm an IT professional with a <strong style="color:var(--t1)">Bachelor of IT from Federation University Australia</strong>, based in Northfield, South Australia. Google IT Support Professional Certificate holder with hands-on experience in help desk, Active Directory, Microsoft 365, and systems troubleshooting.</p>
+        <p>Beyond traditional IT, I build and ship real systems — a <strong style="color:var(--t1)">6-phase DevOps platform (SkyOps)</strong> with Docker, Kubernetes, Helm, GitHub Actions CI, Prometheus + Grafana, and live cloud deployment on Render with Neon PostgreSQL. I also built <strong style="color:var(--t1)">TicketDesk</strong>, a production help-desk API with Terraform IaC, and led the <strong style="color:var(--t1)">Call-a-Technician</strong> capstone as Project Manager.</p>
+        <p>Actively seeking <strong style="color:var(--t1)">IT Support, Help Desk, Junior DevOps, or Cloud Support</strong> roles where I can contribute from day one.</p>
+      </div>
+      <div class="about-chips">
+        <span class="pill">Windows &amp; Linux</span>
+        <span class="pill">Active Directory</span>
+        <span class="pill">Microsoft 365</span>
+        <span class="pill">Networking</span>
+        <span class="pill">Cyber Security</span>
+        <span class="pill">Docker &amp; Kubernetes</span>
+        <span class="pill">Helm / Terraform</span>
+        <span class="pill">GitHub Actions</span>
+        <span class="pill">Python / FastAPI</span>
+        <span class="pill">PostgreSQL</span>
+        <span class="pill">Prometheus / Grafana</span>
+        <span class="pill">NIST / Essential 8</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <span class="s-tag">Expertise</span>
+    <h2 class="s-title">Skills &amp; Technologies</h2>
+    <p class="s-sub">Core competencies I bring to any IT or DevOps environment.</p>
+
+    <div class="skills-grid">
+      <div class="skill-card fade-up">
+        <div class="skill-icon">🎧</div>
+        <h3>IT Support &amp; Help Desk</h3>
+        <p>Tier 1–2 technical support, ticketing systems, remote troubleshooting, and clear end-user communication.</p>
+        <div class="skill-chips">
+          <span class="chip">Windows</span><span class="chip">Remote Support</span><span class="chip">ServiceNow</span><span class="chip">ITIL</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-icon">🌐</div>
+        <h3>Networking</h3>
+        <p>Fundamentals through to troubleshooting and secure network configuration across enterprise environments.</p>
+        <div class="skill-chips">
+          <span class="chip">TCP/IP</span><span class="chip">DNS/DHCP</span><span class="chip">VPN</span><span class="chip">Firewalls</span><span class="chip">Cisco</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-icon">🔐</div>
+        <h3>Cyber Security</h3>
+        <p>Risk identification, incident response, access control, and security framework implementation.</p>
+        <div class="skill-chips">
+          <span class="chip">NIST CSF 2.0</span><span class="chip">ASD Essential 8</span><span class="chip">MFA/RBAC</span><span class="chip">Least Privilege</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-icon">☁️</div>
+        <h3>Cloud &amp; Identity</h3>
+        <p>User and identity management across cloud and hybrid environments including Azure and M365.</p>
+        <div class="skill-chips">
+          <span class="chip">Azure AD</span><span class="chip">Microsoft 365</span><span class="chip">Active Directory</span><span class="chip">Intune</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-icon">🐳</div>
+        <h3>DevOps &amp; CI/CD</h3>
+        <p>Full pipeline: Docker, Kubernetes, Helm, GitHub Actions, Terraform, Prometheus + Grafana — all built and shipped.</p>
+        <div class="skill-chips">
+          <span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Helm</span><span class="chip">GitHub Actions</span><span class="chip">Terraform</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-icon">⚙️</div>
+        <h3>Development</h3>
+        <p>Full-stack web apps, REST APIs, SQL/NoSQL databases, and scripting to automate workflows.</p>
+        <div class="skill-chips">
+          <span class="chip">Python</span><span class="chip">FastAPI</span><span class="chip">Node.js</span><span class="chip">PostgreSQL</span><span class="chip">Git</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTS -->
+    <div style="margin-top:64px">
+      <span class="s-tag">Verified</span>
+      <h2 class="s-title" style="font-size:clamp(1.5rem,2.5vw,2rem);margin-bottom:10px">Certifications</h2>
+      <p class="s-sub" style="margin-bottom:0">Industry credentials backing hands-on skills.</p>
+      <div class="certs-grid">
+        <div class="cert-card fade-up">
+          <div class="cert-icon">🔧</div>
+          <div>
+            <h4>Google IT Support Professional</h4>
+            <p>Coursera / Google</p>
+            <p class="cert-date">Nov 2025 – Jan 2026</p>
+          </div>
+        </div>
+        <div class="cert-card fade-up">
+          <div class="cert-icon">🛡️</div>
+          <div>
+            <h4>Career Essentials in Cybersecurity</h4>
+            <p>Microsoft</p>
+            <p class="cert-date">Mar 2025 – May 2025</p>
+          </div>
+        </div>
+        <div class="cert-card fade-up">
+          <div class="cert-icon">☁️</div>
+          <div>
+            <h4>Microsoft Azure AI Essentials</h4>
+            <p>LinkedIn Learning</p>
+            <p class="cert-date">Feb 2025 – May 2025</p>
+          </div>
+        </div>
+        <div class="cert-card fade-up">
+          <div class="cert-icon">🤖</div>
+          <div>
+            <h4>Generative AI Automation Specialization</h4>
+            <p>Vanderbilt University</p>
+            <p class="cert-date">Apr 2025 – May 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <span class="s-tag">Work</span>
+    <h2 class="s-title">Featured Projects</h2>
+    <p class="s-sub">Production systems — built, deployed, and running live.</p>
+
+    <div class="proj-grid">
+
+      <!-- SKYOPS — FEATURED -->
+      <div class="proj-card-featured fade-up">
+        <div class="proj-banner proj-banner-featured banner-skyops">
+          <div class="mock-ui">
+            <div class="mock-dots">
+              <div class="mock-dot" style="background:#ef4444"></div>
+              <div class="mock-dot" style="background:#f59e0b"></div>
+              <div class="mock-dot" style="background:#22c55e"></div>
+            </div>
+            <div class="mock-bar accent w90"></div>
+            <div style="display:flex;gap:8px;margin-top:4px">
+              <div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:10px">
+                <div style="font-size:9px;color:#60a5fa;font-family:'JetBrains Mono',monospace;margin-bottom:6px">UPTIME</div>
+                <div style="font-size:22px;font-weight:800;color:#22c55e">100%</div>
+              </div>
+              <div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:10px">
+                <div style="font-size:9px;color:#60a5fa;font-family:'JetBrains Mono',monospace;margin-bottom:6px">LATENCY</div>
+                <div style="font-size:22px;font-weight:800;color:#22d3ee">65ms</div>
+              </div>
+              <div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:6px;padding:10px">
+                <div style="font-size:9px;color:#60a5fa;font-family:'JetBrains Mono',monospace;margin-bottom:6px">CHECKS</div>
+                <div style="font-size:22px;font-weight:800;color:#a855f7">30+</div>
+              </div>
+            </div>
+            <div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:12px;margin-top:8px">
+              <div style="font-size:9px;color:#60a5fa;font-family:'JetBrains Mono',monospace;margin-bottom:8px">LATENCY HISTORY</div>
+              <div style="height:50px;display:flex;align-items:flex-end;gap:4px">
+                <div style="flex:1;border-radius:2px 2px 0 0;background:rgba(34,211,238,.4);height:40%"></div>
+                <div style="flex:1;border-radius:2px 2px 0 0;background:rgba(34,211,238,.4);height:60%"></div>
+                <div style="flex:1;border-radius:2px 2px 0 0;background:rgba(34,211,238,.4);height:45%"></div>
+                <div style="flex:1;border-radius:2px 2px 0 0;background:rgba(34,211,238,.4);height:80%"></div>
+                <div style="flex:1;border-radius:2px 2px 0 0;background:rgba(34,211,238,.4);height:55%"></div>
+                <div style="flex:1;border-radius:2px 2px 0 0;background:rgba(34,211,238,.4);height:70%"></div>
+                <div style="flex:1;border-radius:2px 2px 0 0;background:rgba(37,99,235,.5);height:50%"></div>
+                <div style="flex:1;border-radius:2px 2px 0 0;background:rgba(37,99,235,.5);height:65%"></div>
+                <div style="flex:1;border-radius:2px 2px 0 0;background:rgba(34,211,238,.4);height:42%"></div>
+                <div style="flex:1;border-radius:2px 2px 0 0;background:rgba(34,211,238,.4);height:58%"></div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-overlay"></div>
+        </div>
+        <div class="proj-body">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <div class="proj-type">6-Phase DevOps Platform</div>
+            <div class="live-badge"><span class="live-dot"></span>Live</div>
+          </div>
+          <h3>⚡ SkyOps — Production DevOps Platform</h3>
+          <p>A complete 6-phase DevOps pipeline built from scratch: multi-service Docker Compose, Kubernetes manifests on k3d, GitHub Actions CI (lint → pytest → Docker Hub), custom Helm chart with Prometheus + Grafana sub-charts auto-provisioned via ConfigMap, and live Render deployment with Neon PostgreSQL. Features a live uptime dashboard with Chart.js latency history graphs.</p>
+          <div class="proj-stack">
+            <span class="chip">Docker</span>
+            <span class="chip">Kubernetes</span>
+            <span class="chip">Helm</span>
+            <span class="chip">GitHub Actions</span>
+            <span class="chip">Prometheus</span>
+            <span class="chip">Grafana</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">Neon PostgreSQL</span>
+            <span class="chip">Render</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://skyops-api-8dn9.onrender.com" target="_blank" class="btn btn-primary btn-sm">
+              <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Live Dashboard
+            </a>
+            <a href="https://github.com/Priyanshukainwal0/skyops" target="_blank" class="btn-outline btn">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              GitHub
+            </a>
+            <a href="https://skyops-api-8dn9.onrender.com/docs" target="_blank" class="btn-outline btn">API Docs</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TICKETDESK -->
+      <div class="proj-card fade-up">
+        <div class="proj-banner banner-ticket">
+          <div class="mock-ui">
+            <div class="mock-dots">
+              <div class="mock-dot" style="background:#ef4444"></div>
+              <div class="mock-dot" style="background:#f59e0b"></div>
+              <div class="mock-dot" style="background:#22c55e"></div>
+            </div>
+            <div class="mock-bar w70 accent2" style="margin-bottom:8px"></div>
+            <div style="display:flex;flex-direction:column;gap:6px;flex:1">
+              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);border-radius:6px;padding:8px;display:flex;align-items:center;gap:8px">
+                <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;flex-shrink:0"></div>
+                <div style="flex:1"><div class="mock-bar w90" style="height:5px"></div></div>
+                <div style="font-size:9px;color:#a855f7;font-family:'JetBrains Mono',monospace">resolved</div>
+              </div>
+              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);border-radius:6px;padding:8px;display:flex;align-items:center;gap:8px">
+                <div style="width:8px;height:8px;border-radius:50%;background:#f59e0b;flex-shrink:0"></div>
+                <div style="flex:1"><div class="mock-bar w70" style="height:5px"></div></div>
+                <div style="font-size:9px;color:#f59e0b;font-family:'JetBrains Mono',monospace">in_progress</div>
+              </div>
+              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);border-radius:6px;padding:8px;display:flex;align-items:center;gap:8px">
+                <div style="width:8px;height:8px;border-radius:50%;background:#60a5fa;flex-shrink:0"></div>
+                <div style="flex:1"><div class="mock-bar w50" style="height:5px"></div></div>
+                <div style="font-size:9px;color:#60a5fa;font-family:'JetBrains Mono',monospace">open</div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-overlay"></div>
+        </div>
+        <div class="proj-body">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <div class="proj-type">Cloud API · DevOps Project</div>
+            <div class="live-badge"><span class="live-dot"></span>Live</div>
+          </div>
+          <h3>🎫 TicketDesk — Help-Desk Platform</h3>
+          <p>Production-grade ticketing API with a full 6-phase DevOps build. FastAPI + dual-DB support (SQLite dev / Neon PostgreSQL prod), 23-test pytest suite, multi-stage Docker, GitHub Actions CI, Terraform IaC for AWS EC2, Prometheus metrics, and Grafana monitoring stack. 18 seeded demo tickets.</p>
+          <div class="proj-stack">
+            <span class="chip">FastAPI</span>
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Terraform</span>
+            <span class="chip">Prometheus</span>
+            <span class="chip">pytest</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://ticketdesk-app.onrender.com" target="_blank" class="btn btn-primary btn-sm">
+              <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Live App
+            </a>
+            <a href="https://github.com/Priyanshukainwal0/ticketdesk" target="_blank" class="btn-outline btn">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CALL-A-TECHNICIAN -->
+      <div class="proj-card fade-up">
+        <div class="proj-banner banner-call">
+          <div class="mock-ui">
+            <div class="mock-dots">
+              <div class="mock-dot" style="background:#ef4444"></div>
+              <div class="mock-dot" style="background:#f59e0b"></div>
+              <div class="mock-dot" style="background:#22c55e"></div>
+            </div>
+            <div class="mock-bar accent3 w60" style="margin-bottom:10px"></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;flex:1">
+              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);border-radius:6px;padding:10px">
+                <div style="font-size:9px;color:#22c55e;font-family:'JetBrains Mono',monospace;margin-bottom:4px">BOOKINGS</div>
+                <div style="font-size:20px;font-weight:800;color:#22c55e">24</div>
+              </div>
+              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);border-radius:6px;padding:10px">
+                <div style="font-size:9px;color:#22c55e;font-family:'JetBrains Mono',monospace;margin-bottom:4px">TECHS</div>
+                <div style="font-size:20px;font-weight:800;color:#22c55e">8</div>
+              </div>
+              <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);border-radius:6px;padding:10px;grid-column:1/-1">
+                <div style="font-size:9px;color:#22c55e;font-family:'JetBrains Mono',monospace;margin-bottom:6px">STACK</div>
+                <div style="font-size:10px;color:#94a3b8;font-family:'JetBrains Mono',monospace">Node.js · MongoDB · REST</div>
+              </div>
+            </div>
+          </div>
+          <div class="proj-overlay"></div>
+        </div>
+        <div class="proj-body">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <div class="proj-type">Full-Stack · University Capstone</div>
+            <span class="chip-green chip" style="font-size:10px">Project Manager</span>
+          </div>
+          <h3>📞 Call-a-Technician</h3>
+          <p>Live service-booking platform connecting clients with IT technicians. Built and delivered as <strong style="color:var(--t1)">Project Manager</strong> leading the full university team through requirements, sprints, and production deployment. Real-time booking, technician profiles, and admin dashboard.</p>
+          <div class="proj-stack">
+            <span class="chip">Node.js</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">Express</span>
+            <span class="chip">REST API</span>
+            <span class="chip">Agile/Scrum</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://www.callatechnician.com.au/" target="_blank" class="btn btn-primary btn-sm">
+              <svg width="11" height="11" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Live Site
+            </a>
+            <span class="btn-outline btn" style="cursor:default">PM + Full-Stack Dev</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <span class="s-tag">Career</span>
+    <h2 class="s-title">Experience</h2>
+    <p class="s-sub">Where I built real-world discipline, precision, and reliability.</p>
+
+    <div class="exp-grid">
+      <div class="exp-card fade-up">
+        <div class="exp-date">Dec 2023 – Jan 2025</div>
+        <h3>Warehouse Operator</h3>
+        <div class="exp-company">Electrolux Home Products · Adelaide, SA</div>
+        <ul class="exp-list">
+          <li>Processed 200–300 orders/day — achieved 99.5% picking accuracy</li>
+          <li>Reduced order processing time by 20% through workflow improvements</li>
+          <li>Cut stock variances by 30% via cycle counts and reconciliation</li>
+          <li>Maintained WHS compliance — zero lost-time incidents</li>
+        </ul>
+      </div>
+      <div class="exp-card fade-up">
+        <div class="exp-date">Aug 2023 – Present</div>
+        <h3>Commercial Cleaner</h3>
+        <div class="exp-company">VIP Cleaning Services · Adelaide, SA</div>
+        <ul class="exp-list">
+          <li>Achieved 95% quality rating across client satisfaction surveys</li>
+          <li>Improved site cleanliness scores by 25% via standardised checklists</li>
+          <li>Reduced consumable costs by 15% through inventory control</li>
+          <li>100% compliance with WHS standards across all inspections</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:60px">
+      <span class="s-tag">Education</span>
+      <h2 class="s-title" style="font-size:clamp(1.5rem,2.5vw,2rem);margin-bottom:10px">Education</h2>
+      <p class="s-sub" style="margin-bottom:24px">Academic foundation backing practical delivery.</p>
+      <div class="edu-grid">
+        <div class="edu-card fade-up">
+          <span class="edu-badge" style="background:rgba(34,197,94,.1);color:var(--green);border-color:rgba(34,197,94,.2)">Completed</span>
+          <h3>Bachelor of Information Technology</h3>
+          <div class="edu-inst">Federation University Australia · Adelaide, SA</div>
+          <p>Python, Java, Databases, Networking, Cybersecurity, Software Engineering. Applied Agile/Scrum across all team projects; capstone delivered a live full-stack REST API.</p>
+        </div>
+        <div class="edu-card fade-up">
+          <span class="edu-badge" style="background:rgba(34,197,94,.1);color:var(--green);border-color:rgba(34,197,94,.2)">Completed</span>
+          <h3>Google IT Support Professional Certificate</h3>
+          <div class="edu-inst">Coursera / Google · Online</div>
+          <div class="edu-date">Nov 2025 – Jan 2026</div>
+          <p>Hands-on labs: Linux/Windows admin, diagnostic tools, service monitoring, troubleshooting workflows, networking fundamentals, and security best practices.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <span class="s-tag">Contact</span>
+    <h2 class="s-title">Let's work together.</h2>
+    <p class="s-sub">Actively seeking IT Support, Help Desk, Junior DevOps, or Cloud Support roles in Adelaide. I reply within 24 hours.</p>
+
+    <div class="contact-box fade-up">
+      <p>Based in Northfield, South Australia — open to on-site, hybrid, or remote roles.<br>Whether it's a full-time role, contract, or just a chat about tech, reach out.</p>
+      <a href="mailto:priyanshuror00@gmail.com" class="btn btn-primary" style="justify-content:center;width:100%;max-width:320px;margin:0 auto;display:flex">
+        <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        priyanshuror00@gmail.com
+      </a>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/priyanshu-kainwal" target="_blank" class="social-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/Priyanshukainwal0" target="_blank" class="social-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+          GitHub
+        </a>
+        <a href="https://skyops-api-8dn9.onrender.com" target="_blank" class="social-btn">⚡ SkyOps</a>
+        <a href="https://ticketdesk-app.onrender.com" target="_blank" class="social-btn">🎫 TicketDesk</a>
+        <a href="tel:0478199436" class="social-btn">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+          0478 199 436
+        </a>
+        <a href="resume.html" target="_blank" class="social-btn">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+          Download CV
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Priyanshu &nbsp;·&nbsp; Northfield, South Australia &nbsp;·&nbsp; priyanshuror00@gmail.com</p>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(
+  entries => entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in') }),
+  { threshold: 0.08 }
+);
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
