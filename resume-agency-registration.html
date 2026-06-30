@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Priyanshu — Resume (General Registration)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10pt;
+    color: #1e293b;
+    background: #fff;
+    line-height: 1.45;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 13mm 16mm 13mm 16mm;
+    background: #fff;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 9pt; }
+  .header h1 {
+    font-size: 23pt; font-weight: 700; letter-spacing: -.6px;
+    color: #0f172a; line-height: 1;
+  }
+  .header .role {
+    font-size: 9.5pt; color: #2563eb; font-weight: 600;
+    margin-top: 3pt; letter-spacing: .01em;
+  }
+  .contact-row {
+    display: flex; flex-wrap: wrap; gap: 3pt 12pt;
+    margin-top: 5pt; font-size: 8.5pt; color: #475569;
+  }
+  .contact-row a { color: #2563eb; text-decoration: none; }
+
+  /* ── DIVIDER ── */
+  hr {
+    border: none; border-top: 1.5px solid #2563eb;
+    margin: 7pt 0;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 8pt; }
+  .section-title {
+    font-size: 8pt; font-weight: 700; letter-spacing: .11em;
+    text-transform: uppercase; color: #2563eb;
+    margin-bottom: 5pt;
+  }
+
+  /* ── ENTRIES ── */
+  .entry { margin-bottom: 7pt; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-header {
+    display: flex; justify-content: space-between;
+    align-items: baseline; flex-wrap: wrap; gap: 2pt;
+  }
+  .entry-title { font-size: 10pt; font-weight: 700; color: #0f172a; }
+  .entry-meta { font-size: 8.5pt; color: #64748b; white-space: nowrap; }
+  .entry-sub {
+    font-size: 8.5pt; color: #475569;
+    margin-top: 1pt; margin-bottom: 3pt;
+  }
+  .entry-sub a { color: #2563eb; text-decoration: none; }
+
+  ul.bullets { padding-left: 11pt; }
+  ul.bullets li {
+    font-size: 9pt; color: #334155;
+    margin-bottom: 2pt; line-height: 1.48;
+  }
+
+  /* ── SKILLS ── */
+  .skills-table { width: 100%; border-collapse: collapse; }
+  .skills-table td {
+    font-size: 9pt; color: #334155;
+    padding: 2pt 8pt 2pt 0; vertical-align: top; width: 50%;
+  }
+  .skills-table td b { color: #0f172a; font-weight: 600; }
+
+  /* ── CERTS ── */
+  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt 16pt; }
+  .cert-item { font-size: 9pt; color: #334155; }
+  .cert-item b { color: #0f172a; font-weight: 600; display: block; }
+  .cert-item span { color: #64748b; font-size: 8.5pt; }
+
+  /* ── SOFT SKILLS ── */
+  .softskills-row { display: flex; flex-wrap: wrap; gap: 5pt 8pt; }
+  .softskill-pill {
+    font-size: 8.5pt; color: #1e3a8a; background: #eff6ff;
+    border: 1px solid #bfdbfe; border-radius: 12px;
+    padding: 2.5pt 9pt; font-weight: 600; white-space: nowrap;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; padding: 12mm 15mm; width: 100%; box-shadow: none; }
+    a { color: #2563eb !important; }
+    @page { size: A4; margin: 0; }
+  }
+
+  @media screen {
+    body { background: #f1f5f9; padding: 20px; }
+    .page { box-shadow: 0 4px 24px rgba(0,0,0,.12); border-radius: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Priyanshu</h1>
+    <div class="role">IT Professional &nbsp;|&nbsp; Full-Stack Development, DevOps &amp; IT Support &nbsp;|&nbsp; Adelaide, SA</div>
+    <div class="contact-row">
+      <span>📍 Northfield, SA 5085</span>
+      <span>✅ Full-time availability</span>
+      <span>📞 <a href="tel:0478199436">0478 199 436</a></span>
+      <span>✉️ <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=priyanshuror00@gmail.com">priyanshuror00@gmail.com</a></span>
+      <span>🔗 <a href="https://www.linkedin.com/in/priyanshu-kainwal-38242a287">linkedin.com/in/priyanshu-kainwal</a></span>
+      <span>💻 <a href="https://github.com/Priyanshukainwal0">github.com/Priyanshukainwal0</a></span>
+      <span>🌐 <a href="https://priyanshukainwal0.github.io">Personal Portfolio</a></span>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">Summary</div>
+    <p style="font-size:9pt;color:#334155;line-height:1.55;">
+      IT graduate with a Bachelor of Information Technology from Federation University Australia and a Google IT Support Professional Certificate, with a genuinely broad and versatile skill set spanning full-stack software development, DevOps/cloud infrastructure, IT support, and technical documentation. I lead with evidence, not just claims — I've independently designed, built, and deployed three live production systems over the past year, each demonstrating a different strength: a full-stack booking platform delivered as Project Manager for a real client, a complete DevOps pipeline with cloud monitoring, and a help-desk ticketing system with production-grade testing and documentation. I'm a fast, self-directed learner, a clear communicator with both technical and non-technical audiences, and genuinely comfortable adapting across IT support, software engineering, and customer-facing roles. Open to full-time, contract, or temp opportunities across the IT/ICT sector in Adelaide.
+    </p>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <table class="skills-table">
+      <tr>
+        <td><b>IT Support &amp; Help Desk:</b> Windows 10/11, macOS, Linux, remote desktop tools, ticketing systems, hardware/software troubleshooting, ITIL basics</td>
+        <td><b>Networking:</b> TCP/IP, DNS, DHCP, VPN, firewalls, subnetting, network diagnostics</td>
+      </tr>
+      <tr>
+        <td><b>Cloud &amp; Identity:</b> Active Directory, Azure AD / Entra ID, Microsoft 365 admin, Exchange Online, Intune, MFA, RBAC</td>
+        <td><b>Cyber Security:</b> NIST CSF 2.0, ASD Essential Eight, least-privilege access, vulnerability awareness</td>
+      </tr>
+      <tr>
+        <td><b>DevOps &amp; Infrastructure:</b> Docker, Kubernetes, Helm, GitHub Actions CI/CD, Terraform, Prometheus, Grafana, AWS, Render</td>
+        <td><b>Development:</b> Python (FastAPI), Node.js, JavaScript, React, SQL (PostgreSQL/MySQL/SQLite), MongoDB, REST APIs, Git</td>
+      </tr>
+      <tr>
+        <td><b>Technical Writing:</b> User guides, API documentation (OpenAPI/Swagger), README/setup documentation, knowledge base articles</td>
+        <td><b>Tools:</b> PowerShell, Bash, Microsoft Office, CRM/helpdesk software workflow logic</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- SOFT SKILLS -->
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="softskills-row">
+      <span class="softskill-pill">Stakeholder Communication</span>
+      <span class="softskill-pill">Project Ownership</span>
+      <span class="softskill-pill">Agile / Scrum Delivery</span>
+      <span class="softskill-pill">Problem Solving</span>
+      <span class="softskill-pill">Customer Service</span>
+      <span class="softskill-pill">Adaptability</span>
+      <span class="softskill-pill">Attention to Detail</span>
+      <span class="softskill-pill">Time Management</span>
+      <span class="softskill-pill">Team Leadership</span>
+      <span class="softskill-pill">Fast Learner</span>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-title">Projects</div>
+
+    <!-- Call-a-Technician — always first, PM role highlighted -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Call-a-Technician — Technician Dispatch &amp; Booking Platform</span>
+        <span class="entry-meta">University Capstone &nbsp;|&nbsp; 2024–2025</span>
+      </div>
+      <div class="entry-sub">
+        Live: <a href="https://www.callatechnician.com.au">callatechnician.com.au</a>
+        &nbsp;·&nbsp; GitHub: <a href="https://github.com/Priyanshukainwal0/call-a-technician">github.com/Priyanshukainwal0/call-a-technician</a>
+        &nbsp;·&nbsp; Stack: Node.js, Express, MongoDB, JWT, React, npm workspaces &nbsp;·&nbsp; Role: <b>Project Manager &amp; Full-Stack Developer</b>
+      </div>
+      <ul class="bullets">
+        <li><b>As Project Manager</b>, led a 5-person team from initial client requirements through to a live production launch — ran weekly standups, owned the sprint backlog in Agile/Scrum, and was the primary point of contact for a real external client throughout delivery.</li>
+        <li>Designed and built a Node.js/Express/MongoDB REST API with JWT authentication and role-based access control, powering an 8-stage job workflow with a full audit trail.</li>
+        <li>Built the public booking site and an internal operations dashboard end-to-end, including a customer request form, automated email confirmation, and reCAPTCHA spam protection.</li>
+        <li>Delivered a real product still in production use by a real business today — direct evidence of end-to-end ownership from requirements to production.</li>
+      </ul>
+    </div>
+
+    <!-- SkyOps -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">SkyOps — End-to-End DevOps Platform</span>
+        <span class="entry-meta">Personal Project &nbsp;|&nbsp; 2025</span>
+      </div>
+      <div class="entry-sub">
+        Live: <a href="https://skyops-api-8dn9.onrender.com">skyops-api-8dn9.onrender.com</a>
+        &nbsp;·&nbsp; GitHub: <a href="https://github.com/Priyanshukainwal0/skyops">github.com/Priyanshukainwal0/skyops</a>
+        &nbsp;·&nbsp; Stack: Docker, Kubernetes, Helm, GitHub Actions, Prometheus, Grafana, FastAPI, PostgreSQL
+      </div>
+      <ul class="bullets">
+        <li>Designed and shipped a complete 6-phase DevOps pipeline from scratch: containerisation → orchestration → packaging → CI/CD → monitoring → live production deployment.</li>
+        <li>Built a GitHub Actions CI/CD pipeline that lints, tests, builds, and deploys automatically on every commit, with zero manual steps — true infrastructure-as-code from commit to production.</li>
+        <li>Built a live monitoring dashboard and a Grafana dashboard (request rate, P95 latency, error rate) for proactive operational visibility.</li>
+      </ul>
+    </div>
+
+    <!-- TicketDesk -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">TicketDesk — Help-Desk Ticketing API</span>
+        <span class="entry-meta">Personal Project &nbsp;|&nbsp; 2025</span>
+      </div>
+      <div class="entry-sub">
+        Live: <a href="https://ticketdesk-app.onrender.com">ticketdesk-app.onrender.com</a>
+        &nbsp;·&nbsp; GitHub: <a href="https://github.com/Priyanshukainwal0/ticketdesk">github.com/Priyanshukainwal0/ticketdesk</a>
+        &nbsp;·&nbsp; Stack: Python, FastAPI, PostgreSQL, Docker, Terraform (AWS EC2)
+      </div>
+      <ul class="bullets">
+        <li>Designed and shipped a production help-desk REST API covering the full ticket lifecycle, with auto-generated Swagger/OpenAPI documentation.</li>
+        <li>Wrote a 23-test automated suite and Terraform IaC to provision AWS infrastructure — repeatable, version-controlled, with zero manual server setup.</li>
+        <li>Built a GitHub Actions CI pipeline running the full test suite on every push, catching regressions before production.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Commercial Cleaner</span>
+        <span class="entry-meta">Aug 2023 – Present</span>
+      </div>
+      <div class="entry-sub">VIP Cleaning Services &nbsp;·&nbsp; Adelaide, SA</div>
+      <ul class="bullets">
+        <li>Worked directly with clients on a recurring basis, consistently scoring 95% in client quality surveys; introduced standardised checklists that improved site quality scores by 25%.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Warehouse Operator</span>
+        <span class="entry-meta">Dec 2023 – Jan 2025</span>
+      </div>
+      <div class="entry-sub">Electrolux Home Products &nbsp;·&nbsp; Adelaide, SA</div>
+      <ul class="bullets">
+        <li>Maintained 99.5% accuracy across 200–300 orders per day; identified and implemented a process improvement that cut picking time by 20%.</li>
+        <li>Zero lost-time incidents across the full tenure — maintained WHS compliance at every inspection.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Bachelor of Information Technology</span>
+        <span class="entry-meta">Federation University Australia</span>
+      </div>
+      <div class="entry-sub">Federation University Australia &nbsp;·&nbsp; Adelaide, SA</div>
+      <ul class="bullets">
+        <li>Relevant units: Python, Java, Databases, Networking, Cybersecurity, Software Engineering, Systems Analysis.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-title">Certifications</div>
+    <div class="cert-grid">
+      <div class="cert-item">
+        <b>Google IT Support Professional Certificate</b>
+        <span>Coursera / Google &nbsp;·&nbsp; Nov 2025 – Jan 2026</span>
+      </div>
+      <div class="cert-item">
+        <b>Career Essentials in Cybersecurity</b>
+        <span>Microsoft &nbsp;·&nbsp; Mar 2025 – May 2025</span>
+      </div>
+      <div class="cert-item">
+        <b>Microsoft Azure AI Essentials</b>
+        <span>LinkedIn Learning &nbsp;·&nbsp; Feb 2025 – May 2025</span>
+      </div>
+      <div class="cert-item">
+        <b>Generative AI Automation Specialization</b>
+        <span>Vanderbilt University &nbsp;·&nbsp; Apr 2025 – May 2025</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
