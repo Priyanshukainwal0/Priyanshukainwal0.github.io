@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Priyanshu — Resume (Vulcan Technical Writer)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10pt;
+    color: #1e293b;
+    background: #fff;
+    line-height: 1.45;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    padding: 13mm 16mm 13mm 16mm;
+    background: #fff;
+  }
+
+  /* ── HEADER ── */
+  .header { margin-bottom: 9pt; }
+  .header h1 {
+    font-size: 23pt; font-weight: 700; letter-spacing: -.6px;
+    color: #0f172a; line-height: 1;
+  }
+  .header .role {
+    font-size: 9.5pt; color: #2563eb; font-weight: 600;
+    margin-top: 3pt; letter-spacing: .01em;
+  }
+  .contact-row {
+    display: flex; flex-wrap: wrap; gap: 3pt 12pt;
+    margin-top: 5pt; font-size: 8.5pt; color: #475569;
+  }
+  .contact-row a { color: #2563eb; text-decoration: none; }
+
+  /* ── DIVIDER ── */
+  hr {
+    border: none; border-top: 1.5px solid #2563eb;
+    margin: 7pt 0;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 8pt; }
+  .section-title {
+    font-size: 8pt; font-weight: 700; letter-spacing: .11em;
+    text-transform: uppercase; color: #2563eb;
+    margin-bottom: 5pt;
+  }
+
+  /* ── ENTRIES ── */
+  .entry { margin-bottom: 7pt; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-header {
+    display: flex; justify-content: space-between;
+    align-items: baseline; flex-wrap: wrap; gap: 2pt;
+  }
+  .entry-title { font-size: 10pt; font-weight: 700; color: #0f172a; }
+  .entry-meta { font-size: 8.5pt; color: #64748b; white-space: nowrap; }
+  .entry-sub {
+    font-size: 8.5pt; color: #475569;
+    margin-top: 1pt; margin-bottom: 3pt;
+  }
+  .entry-sub a { color: #2563eb; text-decoration: none; }
+
+  ul.bullets { padding-left: 11pt; }
+  ul.bullets li {
+    font-size: 9pt; color: #334155;
+    margin-bottom: 2pt; line-height: 1.48;
+  }
+
+  /* ── SKILLS ── */
+  .skills-table { width: 100%; border-collapse: collapse; }
+  .skills-table td {
+    font-size: 9pt; color: #334155;
+    padding: 2pt 8pt 2pt 0; vertical-align: top; width: 50%;
+  }
+  .skills-table td b { color: #0f172a; font-weight: 600; }
+
+  /* ── CERTS ── */
+  .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4pt 16pt; }
+  .cert-item { font-size: 9pt; color: #334155; }
+  .cert-item b { color: #0f172a; font-weight: 600; display: block; }
+  .cert-item span { color: #64748b; font-size: 8.5pt; }
+
+  /* ── SOFT SKILLS ── */
+  .softskills-row { display: flex; flex-wrap: wrap; gap: 5pt 8pt; }
+  .softskill-pill {
+    font-size: 8.5pt; color: #1e3a8a; background: #eff6ff;
+    border: 1px solid #bfdbfe; border-radius: 12px;
+    padding: 2.5pt 9pt; font-weight: 600; white-space: nowrap;
+  }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; padding: 12mm 15mm; width: 100%; box-shadow: none; }
+    a { color: #2563eb !important; }
+    @page { size: A4; margin: 0; }
+  }
+
+  @media screen {
+    body { background: #f1f5f9; padding: 20px; }
+    .page { box-shadow: 0 4px 24px rgba(0,0,0,.12); border-radius: 4px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>Priyanshu</h1>
+    <div class="role">Technical Writer &nbsp;|&nbsp; Software Documentation &amp; User Guides &nbsp;|&nbsp; Clear, Precise Communication</div>
+    <div class="contact-row">
+      <span>📍 Northfield, SA 5085</span>
+      <span>✅ Full-time availability</span>
+      <span>📞 <a href="tel:0478199436">0478 199 436</a></span>
+      <span>✉️ <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=priyanshuror00@gmail.com">priyanshuror00@gmail.com</a></span>
+      <span>🔗 <a href="https://www.linkedin.com/in/priyanshu-kainwal-38242a287">linkedin.com/in/priyanshu-kainwal</a></span>
+      <span>💻 <a href="https://github.com/Priyanshukainwal0">github.com/Priyanshukainwal0</a></span>
+      <span>🌐 <a href="https://priyanshukainwal0.github.io">Personal Portfolio</a></span>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- SUMMARY -->
+  <div class="section">
+    <div class="section-title">Summary</div>
+    <p style="font-size:9pt;color:#334155;line-height:1.55;">
+      IT graduate with a Bachelor of Information Technology and a strong, demonstrated habit of producing clear, accurate technical documentation — not as an afterthought, but as a core part of how I build software. Across every project I've shipped, I've written user-facing documentation, API references, and setup guides that genuinely needed to work for someone other than me. I have high computer literacy, a logical, detail-oriented approach to structuring information, and genuine empathy for the reader — I know what it's like to return to my own documentation months later and need it to actually answer the question I have. I'm comfortable digesting complex technical concepts (from REST APIs to cloud infrastructure to DevOps pipelines) and distilling them into concise, accurate, easy-to-follow material, and I'm a fast learner with new technical domains and tools.
+    </p>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section">
+    <div class="section-title">Technical Skills</div>
+    <table class="skills-table">
+      <tr>
+        <td><b>Technical Writing:</b> User guides, API documentation, README/setup documentation, troubleshooting guides, knowledge base articles</td>
+        <td><b>Documentation Tools &amp; Formats:</b> Markdown, auto-generated OpenAPI/Swagger docs, structured technical specifications</td>
+      </tr>
+      <tr>
+        <td><b>Version Control &amp; Collaboration:</b> Git, GitHub, collaborative documentation review and revision</td>
+        <td><b>Software &amp; Systems Literacy:</b> REST APIs, cloud infrastructure, databases (SQL), DevOps pipelines, networking fundamentals</td>
+      </tr>
+      <tr>
+        <td><b>Content Structure:</b> Information architecture, logical topic/section structuring, audience-appropriate language</td>
+        <td><b>Software Development:</b> Python, JavaScript, Node.js, working directly with engineering teams on product features</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- SOFT SKILLS -->
+  <div class="section">
+    <div class="section-title">Core Competencies</div>
+    <div class="softskills-row">
+      <span class="softskill-pill">Clear Written Communication</span>
+      <span class="softskill-pill">Attention to Detail</span>
+      <span class="softskill-pill">Logical Thinking</span>
+      <span class="softskill-pill">Reader Empathy</span>
+      <span class="softskill-pill">Fast Learner</span>
+      <span class="softskill-pill">Cross-Team Collaboration</span>
+      <span class="softskill-pill">Continuous Improvement</span>
+      <span class="softskill-pill">Self-Directed</span>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-title">Projects — Documentation in Practice</div>
+
+    <!-- Call-a-Technician — always first, PM role highlighted -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Call-a-Technician — Technician Dispatch &amp; Booking Platform</span>
+        <span class="entry-meta">University Capstone &nbsp;|&nbsp; 2024–2025</span>
+      </div>
+      <div class="entry-sub">
+        Live: <a href="https://www.callatechnician.com.au">callatechnician.com.au</a>
+        &nbsp;·&nbsp; GitHub: <a href="https://github.com/Priyanshukainwal0/call-a-technician">github.com/Priyanshukainwal0/call-a-technician</a>
+        &nbsp;·&nbsp; Role: <b>Project Manager &amp; Full-Stack Developer</b>
+      </div>
+      <ul class="bullets">
+        <li><b>As Project Manager</b>, led a 5-person team from initial client requirements through to a live production launch — wrote and maintained the project documentation that kept both the development team and a real external client aligned on scope and decisions throughout delivery.</li>
+        <li>Digested technical decisions made by the development team and translated them into documentation a non-technical client could understand and act on — direct practice with the "subject matter expert to end user" translation this role requires.</li>
+        <li>Wrote a comprehensive README covering setup, architecture, and usage for the full monorepo, structured to onboard a new developer with no prior context.</li>
+        <li>Delivered a real product still in production use by a real business today — proof that the documentation behind it was clear enough to actually work in practice.</li>
+      </ul>
+    </div>
+
+    <!-- SkyOps -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">SkyOps — End-to-End DevOps Platform</span>
+        <span class="entry-meta">Personal Project &nbsp;|&nbsp; 2025</span>
+      </div>
+      <div class="entry-sub">
+        Live: <a href="https://skyops-api-8dn9.onrender.com">skyops-api-8dn9.onrender.com</a>
+        &nbsp;·&nbsp; GitHub: <a href="https://github.com/Priyanshukainwal0/skyops">github.com/Priyanshukainwal0/skyops</a>
+      </div>
+      <ul class="bullets">
+        <li>Wrote a comprehensive README distilling a genuinely complex technical pipeline (Docker, Kubernetes, Helm, CI/CD, monitoring) into a structured, step-by-step guide covering quick starts, architecture diagrams, and configuration tables — exactly the kind of "complex concept made accessible" writing this role calls for.</li>
+        <li>Maintained troubleshooting and operational documentation throughout, written so anyone could pick up support of the system from the notes alone.</li>
+      </ul>
+    </div>
+
+    <!-- TicketDesk -->
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">TicketDesk — Help-Desk Ticketing API</span>
+        <span class="entry-meta">Personal Project &nbsp;|&nbsp; 2025</span>
+      </div>
+      <div class="entry-sub">
+        Live: <a href="https://ticketdesk-app.onrender.com">ticketdesk-app.onrender.com</a>
+        &nbsp;·&nbsp; GitHub: <a href="https://github.com/Priyanshukainwal0/ticketdesk">github.com/Priyanshukainwal0/ticketdesk</a>
+      </div>
+      <ul class="bullets">
+        <li>Built auto-generated, interactive API documentation (Swagger/OpenAPI) covering every endpoint — practical experience producing reference material that stays accurate as the underlying product changes, a key concern for any software documentation team.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- WORK EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Work Experience</div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Commercial Cleaner</span>
+        <span class="entry-meta">Aug 2023 – Present</span>
+      </div>
+      <div class="entry-sub">VIP Cleaning Services &nbsp;·&nbsp; Adelaide, SA</div>
+      <ul class="bullets">
+        <li>Worked directly with clients on a recurring basis, consistently scoring 95% in client quality surveys; introduced standardised checklists that improved site quality scores by 25% — a process-documentation mindset applied outside of software.</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Warehouse Operator</span>
+        <span class="entry-meta">Dec 2023 – Jan 2025</span>
+      </div>
+      <div class="entry-sub">Electrolux Home Products &nbsp;·&nbsp; Adelaide, SA</div>
+      <ul class="bullets">
+        <li>Maintained 99.5% accuracy across 200–300 orders per day, requiring sustained attention to detail in a fast-paced environment.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="entry">
+      <div class="entry-header">
+        <span class="entry-title">Bachelor of Information Technology</span>
+        <span class="entry-meta">Federation University Australia</span>
+      </div>
+      <div class="entry-sub">Federation University Australia &nbsp;·&nbsp; Adelaide, SA</div>
+      <ul class="bullets">
+        <li>Relevant units: Software Engineering, Systems Analysis, Databases, Networking, Cybersecurity.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div class="section">
+    <div class="section-title">Certifications</div>
+    <div class="cert-grid">
+      <div class="cert-item">
+        <b>Google IT Support Professional Certificate</b>
+        <span>Coursera / Google &nbsp;·&nbsp; Nov 2025 – Jan 2026</span>
+      </div>
+      <div class="cert-item">
+        <b>Career Essentials in Cybersecurity</b>
+        <span>Microsoft &nbsp;·&nbsp; Mar 2025 – May 2025</span>
+      </div>
+      <div class="cert-item">
+        <b>Microsoft Azure AI Essentials</b>
+        <span>LinkedIn Learning &nbsp;·&nbsp; Feb 2025 – May 2025</span>
+      </div>
+      <div class="cert-item">
+        <b>Generative AI Automation Specialization</b>
+        <span>Vanderbilt University &nbsp;·&nbsp; Apr 2025 – May 2025</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
